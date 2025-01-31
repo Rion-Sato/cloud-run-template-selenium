@@ -19,6 +19,9 @@ ENV PYTHONUNBUFFERED 1
 # Create and change to the app directory.
 WORKDIR /usr/src/app
 
+RUN apt-get update && apt-get install -y \
+chromium chromium-driver
+
 # Copy application dependency manifests to the container image.
 # Copying this separately prevents re-running pip install on every code change.
 COPY requirements.txt ./
